@@ -1,6 +1,6 @@
 /* Aplicar a fonte Montserrat por padrão */
 body, html {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -10,19 +10,19 @@ body, html {
 
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-weight: 700;
     color: #C0C0C0;
 }
 
 p strong {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-weight: 700;
     color: #C0C0C0;
 }
 
 h1 strong, h2 strong, h3 strong {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-weight: 700;
 }
 
@@ -133,7 +133,7 @@ nav ul li a:hover {
 .sobre-mim, .meu-trabalho {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center; /* Centraliza os itens no contêiner */
     align-items: center;
     padding: 50px 0;
     background-color: #1a1a1a;
@@ -142,40 +142,35 @@ nav ul li a:hover {
 .sobre-mim h2, .meu-trabalho h2 {
     font-size: 2rem;
     color: #C0C0C0; /* Prata */
+    text-align: center; /* Centraliza o texto */
+    width: 100%; /* Faz com que o título ocupe toda a largura do contêiner */
 }
-.sobre-mim {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px 0;
-    background-color: #1a1a1a;
-}
-  
-.sobre-mim .imagem {
+
+.sobre-mim .imagem, .meu-trabalho .imagem {
     width: 30%; 
     text-align: center; 
 }
-  
-.sobre-mim .imagem img {
+
+.sobre-mim .imagem img, .meu-trabalho .imagem img {
     max-width: 100%; 
     height: auto; 
     border-radius: 10px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
-  
-.sobre-mim .texto {
+
+.sobre-mim .texto, .meu-trabalho .texto {
     width: 65%;
 }
 
 .sobre-mim p, .meu-trabalho p {
-    font-size: 16px;
+    font-size: 22px;
     color: #fff;
     max-width: 80%;
     margin: 20px auto;
     line-height: 1.8;
     text-align: justify;
 }
+
 
 .portfolio-imagens {
     padding: 50px 0;
@@ -191,12 +186,13 @@ nav ul li a:hover {
 
 .imagem-container {
     display: inline-block;
-    width: calc(25% - 40px);
+    width: calc(23% - 40px);
     margin: 10px;
     background-color: #333;
     padding: 10px;
     border-radius: 8px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Adiciona overflow oculto */
 }
 
 .imagem-container:hover {
@@ -205,7 +201,9 @@ nav ul li a:hover {
 }
 
 .imagem-container img {
-    max-width: 100%;
+    width: 100%; /* Garante que a largura da imagem é 100% do container */
+    height: 600px; /* Defina uma altura fixa que se adeque ao seu design */
+    object-fit: cover; /* Corta a imagem para preencher o container sem distorção */
     border-radius: 5px;
 }
 
@@ -224,6 +222,7 @@ nav ul li a:hover {
 .imagem-container a:hover {
     text-decoration: underline;
 }
+
 
 /* Footer */
 footer {
@@ -335,4 +334,42 @@ footer {
     .imagem-container {
         width: calc(100% - 20px);
     }
+}
+
+.modal {
+    display: none; /* Inicialmente oculto */
+    position: fixed; /* Fica fixo na tela */
+    z-index: 999; /* Fica sobreposto aos outros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    overflow: auto; /* Permite rolagem se necessário */
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro com opacidade */
+}
+
+.modal-conteudo {
+    margin: auto;
+    display: block;
+    width: auto; /* Largura automática */
+    max-width: 80%; /* Limite de largura */
+    max-height: 80%; /* Limite de altura */
+}
+
+.close {
+    position: absolute; /* Fica no canto superior direito */
+    top: 15px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s; /* Transição suave */
+    cursor: pointer; /* Cursor de ponteiro */
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb; /* Cor ao passar o mouse */
+    text-decoration: none; /* Remove o sublinhado */
+    cursor: pointer; /* Cursor de ponteiro */
 }

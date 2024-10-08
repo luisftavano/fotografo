@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <title>Lucas Ristow | Fotógrafo e Filmmaker</title>
@@ -18,8 +18,6 @@
                 <a href="index.html"><img src="images/logo_lucasristow.png" alt="Logo do Fotógrafo"></a>
             </div>
             <h2>Lucas Ristow</h2>
-
-            <!-- Menu de navegação -->
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -28,14 +26,12 @@
                         <a href="#" class="dropdown-toggle">Contato</a>
                         <ul class="dropdown-menu">
                             <li><a href="https://api.whatsapp.com/send/?phone=5511950601900&text=Olá&type=phone_number&app_absent=0" target="_blank">WhatsApp</a></li>
-                            <li><a href="https://www.instagram.com/lucasristow" target="_blank">Instagram</a></li>
+                            <li><a href="https://www.instagram.com/lucasristow/" target="_blank">Instagram</a></li>
                             <li><a href="mailto:lucasristow15@gmail.com">E-mail</a></li>
                         </ul>
                     </li>
                 </ul>
             </nav>
-
-            <!-- Ícone do menu hambúrguer -->
             <div class="menu-hamburger" id="mobile-menu">
                 <span></span>
                 <span></span>
@@ -47,7 +43,7 @@
     <main>
         <section class="sobre-mim">
             <div class="imagem">
-              <img src="images/foto_escritorio.jpeg" alt="Sua foto">
+                <img src="images/foto_escritorio.jpeg" alt="Sua foto">
             </div>
             <div class="texto">
                 <h2>Sobre Mim</h2>
@@ -56,6 +52,7 @@
                 </strong>
             </div>
         </section>
+
         <section class="meu-trabalho">
             <div class="container">
                 <h2><strong>Meu Trabalho</strong></h2>
@@ -71,21 +68,28 @@
             <h2>Portfólio</h2>
             <div class="imagem-container">
                 <img src="./images/foto_basquete1.jpeg" alt="Foto Basquete">
-                <h3>Foto Esportiva</h3>
-                <a href="portfolio.html">Veja Mais</a>
+                <h3>Basquete</h3>
+                <a href="#" onclick="abrirModal('./images/foto_basquete1.jpeg'); return false;">Clique Aqui</a>
+            </div>
+
+            <div class="imagem-container">
+                <img src="images/foto_escritorio.jpeg" alt="Foto show">
+                <h3>Escritório Brito</h3>
+                <a href="#" onclick="abrirModal('images/foto_escritorio.jpeg'); return false;">Clique Aqui</a>
             </div>
 
             <div class="imagem-container">
                 <img src="images/foto_show1.png" alt="Foto show">
-                <h3>Show</h3>
-                <a href="portfolio.html">Veja Mais</a>
+                <h3>Show Bk</h3>
+                <a href="#" onclick="abrirModal('images/foto_show1.png'); return false;">Clique Aqui</a>
             </div>
 
             <div class="imagem-container">
                 <img src="./images/foto_show2.jpeg" alt="Foto show">
-                <h3>Show</h3>
-                <a href="portfolio.html">Veja Mais</a>
+                <h3>Show Bk</h3>
+                <a href="#" onclick="abrirModal('./images/foto_show2.jpeg'); return false;">Clique Aqui</a>
             </div>
+            
         </section>
     </main>
 
@@ -97,8 +101,8 @@
                 </div>
                 <div class="footer-info">
                     <p><strong>Lucas Ristow</strong></p>
-                    <p>celular: (11) 950601900</p>
-                    <p>e-mail: lucasristow15@gmail.com</p>
+                    <p>Celular: (11) 950601900</p>
+                    <p>e-mail: <a href="mailto:lucasristow15@gmail.com">lucasristow15@gmail.com</a></p>
                 </div>
             </section>
             <div class="footer-nav-social">
@@ -110,7 +114,7 @@
                     <a href="https://api.whatsapp.com/send/?phone=5511950601900&text=Olá&type=phone_number&app_absent=0" target="_blank">
                         <img src="images/whatsapp-icon-logo-svgrepo-com.svg" alt="WhatsApp">
                     </a>
-                    <a href="https://www.instagram.com/lucasristow" target="_blank">
+                    <a href="https://www.instagram.com/lucasristow/" target="_blank">
                         <img src="images/instagram.svg" alt="Instagram">
                     </a>
                 </div>
@@ -120,8 +124,13 @@
             <p>Todos os direitos reservados &copy; 2024 | Desenvolvido por <strong>Tash</strong></p>
         </div>
     </footer>
-      
-    
+
+    <!-- Modal para exibir imagens em tela cheia -->
+    <div id="modal" class="modal">
+        <span class="close" onclick="fecharModal()">&times;</span>
+        <img class="modal-conteudo" id="imagem-modal" alt="Imagem em Tela Cheia">
+    </div>
+
     <script>
         AOS.init();
     </script>
@@ -130,12 +139,10 @@
         const mobileMenu = document.querySelector('.menu-hamburger');
         const navMenu = document.querySelector('nav ul');
 
-        // Toggle do menu hambúrguer
         mobileMenu.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
+            navMenu.classList.toggle('active'); 
         });
 
-        // Função para verificar se o elemento está parcialmente visível na tela
         function isInViewport(element) {
             const rect = element.getBoundingClientRect();
             return (
@@ -144,7 +151,6 @@
             );
         }
 
-        // Adiciona a classe "appear" quando a imagem estiver visível
         function revealImages() {
             const images = document.querySelectorAll('.imagem-container');
             images.forEach(image => {
@@ -154,7 +160,6 @@
             });
         }
 
-        // Função debounce para otimizar o scroll
         function debounce(func, wait = 20, immediate = true) {
             let timeout;
             return function() {
@@ -170,9 +175,23 @@
             };
         }
 
-        // Verifica as imagens ao rolar a página e ao carregar
         window.addEventListener('scroll', debounce(revealImages));
         window.addEventListener('load', revealImages);
+
+        // Função para abrir o modal com a imagem clicada
+        function abrirModal(imagemSrc) {
+            const modal = document.getElementById('modal');
+            const imagemModal = document.getElementById('imagem-modal');
+            modal.style.display = "block"; // Exibe o modal
+            imagemModal.src = imagemSrc; // Define a imagem do modal
+        }
+
+        // Função para fechar o modal
+        function fecharModal() {
+            const modal = document.getElementById('modal');
+            modal.style.display = "none"; // Oculta o modal
+        }
     </script>
 </body>
 </html>
+
