@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <title>Lucas Ristow | Fotógrafo e Filmmaker</title>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <a href="index.html"><img src="images/logo_lucasristow.png" alt="Logo do Fotógrafo"></a>
+            </div>
+            <h2>Lucas Ristow</h2>
+
+            <!-- Menu de navegação -->
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="portfolio.html">Portfólio</a></li>
+                    <li>
+                        <a href="#" class="dropdown-toggle">Contato</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="https://api.whatsapp.com/send/?phone=5511950601900&text=Olá&type=phone_number&app_absent=0" target="_blank">WhatsApp</a></li>
+                            <li><a href="https://www.instagram.com/lucasristow" target="_blank">Instagram</a></li>
+                            <li><a href="mailto:lucasristow15@gmail.com">E-mail</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Ícone do menu hambúrguer -->
+            <div class="menu-hamburger" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="sobre-mim">
+            <div class="imagem">
+              <img src="images/foto_escritorio.jpeg" alt="Sua foto">
+            </div>
+            <div class="texto">
+                <h2>Sobre Mim</h2>
+                <strong>
+                <p>Olá! Meu nome é Lucas Ristow, sou filmmaker e fotógrafo de Mogi das Cruzes, SP, com 4 anos de experiência criando conteúdo audiovisual. Trabalho com vídeos e fotos em diversas áreas, sempre buscando capturar momentos únicos e contar histórias através das lentes. Atualmente, curso Produção Audiovisual na Vila Mariana e estou em constante evolução para entregar o melhor resultado.</p>
+                </strong>
+            </div>
+        </section>
+        <section class="meu-trabalho">
+            <div class="container">
+                <h2><strong>Meu Trabalho</strong></h2>
+                <div>
+                    <strong>
+                        <p>Com um olhar técnico e criativo, registro momentos especiais, produzo vídeos envolventes e capturo a essência de cada projeto. Seja em ensaios fotográficos, vídeos corporativos, eventos ou qualquer outro tipo de produção audiovisual, meu objetivo é transformar ideias em imagens impactantes.</p>
+                    </strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="portfolio-imagens">
+            <h2>Portfólio</h2>
+            <div class="imagem-container">
+                <img src="./images/foto_basquete1.jpeg" alt="Foto Basquete">
+                <h3>Foto Esportiva</h3>
+                <a href="portfolio.html">Veja Mais</a>
+            </div>
+
+            <div class="imagem-container">
+                <img src="images/foto_show1.png" alt="Foto show">
+                <h3>Show</h3>
+                <a href="portfolio.html">Veja Mais</a>
+            </div>
+
+            <div class="imagem-container">
+                <img src="./images/foto_show2.jpeg" alt="Foto show">
+                <h3>Show</h3>
+                <a href="portfolio.html">Veja Mais</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <section class="logo-info">
+                <div class="footer-logo">
+                    <img src="images/logo_lucasristow.png" alt="Logo">
+                </div>
+                <div class="footer-info">
+                    <p><strong>Lucas Ristow</strong></p>
+                    <p>celular: (11) 950601900</p>
+                    <p>e-mail: lucasristow15@gmail.com</p>
+                </div>
+            </section>
+            <div class="footer-nav-social">
+                <nav class="footer-nav">
+                    <a href="index.html">Home</a>
+                    <a href="portfolio.html">Portfólio</a>
+                </nav>
+                <div class="footer-social">
+                    <a href="https://api.whatsapp.com/send/?phone=5511950601900&text=Olá&type=phone_number&app_absent=0" target="_blank">
+                        <img src="images/whatsapp-icon-logo-svgrepo-com.svg" alt="WhatsApp">
+                    </a>
+                    <a href="https://www.instagram.com/lucasristow" target="_blank">
+                        <img src="images/instagram.svg" alt="Instagram">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-credits">
+            <p>Todos os direitos reservados &copy; 2024 | Desenvolvido por <strong>Tash</strong></p>
+        </div>
+    </footer>
+      
+    
+    <script>
+        AOS.init();
+    </script>
+
+    <script>
+        const mobileMenu = document.querySelector('.menu-hamburger');
+        const navMenu = document.querySelector('nav ul');
+
+        // Toggle do menu hambúrguer
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Função para verificar se o elemento está parcialmente visível na tela
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top < (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.bottom > 0
+            );
+        }
+
+        // Adiciona a classe "appear" quando a imagem estiver visível
+        function revealImages() {
+            const images = document.querySelectorAll('.imagem-container');
+            images.forEach(image => {
+                if (isInViewport(image)) {
+                    image.classList.add('appear');
+                }
+            });
+        }
+
+        // Função debounce para otimizar o scroll
+        function debounce(func, wait = 20, immediate = true) {
+            let timeout;
+            return function() {
+                const context = this, args = arguments;
+                const later = function() {
+                    timeout = null;
+                    if (!immediate) func.apply(context, args);
+                };
+                const callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) func.apply(context, args);
+            };
+        }
+
+        // Verifica as imagens ao rolar a página e ao carregar
+        window.addEventListener('scroll', debounce(revealImages));
+        window.addEventListener('load', revealImages);
+    </script>
+</body>
+</html>
